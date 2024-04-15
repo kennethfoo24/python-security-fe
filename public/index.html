@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>React App</title>
+
+  <!-- Datadog RUM Script -->
+  <script>
+    (function(h, o, u, n, d) {
+      h = h[d] = h[d] || { q: [], onReady: function(c) { h.q.push(c) } };
+      d = o.createElement(u); d.async = 1; d.src = n;
+      n = o.getElementsByTagName(u)[0]; n.parentNode.insertBefore(d, n);
+    })(window, document, 'script', 'https://www.datadoghq-browser-agent.com/us1/v5/datadog-rum.js', 'DD_RUM');
+    
+    window.DD_RUM.onReady(function() {
+      window.DD_RUM.init({
+        clientToken: 'pubb5a3a47cad57e6f91c765bc6a5baa14a',
+        applicationId: '356bb7d0-036e-4926-8b16-d9c9dfd0056e',
+        site: 'datadoghq.com',
+        service: 'python-fargate-ecs',
+        env: 'fargate-ecs',
+        // Specify a version number to identify the deployed version of your application in Datadog
+        version: '1.0.0',
+        // allowedTracingUrls: ["http://13.200.4.129:3000/"], 
+        sessionSampleRate: 100,
+        sessionReplaySampleRate: 100,
+        trackUserInteractions: true,
+        trackResources: true,
+        trackLongTasks: true,
+        defaultPrivacyLevel: 'mask-user-input',
+      });
+    });
+  </script>
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+</html>
